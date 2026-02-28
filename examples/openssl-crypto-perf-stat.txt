@@ -1,0 +1,25 @@
+# started on Sat Feb 28 08:54:50 2026
+
+
+ Performance counter stats for 'openssl speed -elapsed -evp aes-256-gcm -seconds 10':
+
+   174,877,338,129      cycles                                                        (58.34%)
+   488,610,021,645      instructions              #    2.79  insn per cycle         
+                                                  #    0.07  stalled cycles per insn  (58.34%)
+       167,035,724      stalled-cycles-frontend   #    0.10% frontend cycles idle     (58.34%)
+    33,636,460,152      stalled-cycles-backend    #   19.23% backend cycles idle      (58.34%)
+    70,550,783,812      cache-references                                              (58.33%)
+         4,201,774      cache-misses              #    0.006 % of all cache refs      (58.33%)
+    70,614,676,943      L1-dcache-loads                                               (58.34%)
+         4,063,764      L1-dcache-load-misses     #    0.01% of all L1-dcache accesses  (49.99%)
+        17,210,844      L1-icache-load-misses                                         (49.99%)
+         2,261,296      dTLB-load-misses                                              (50.00%)
+    33,679,983,876      br_pred                                                       (50.00%)
+         3,734,622      br_mis_pred                                                   (50.00%)
+
+      60.008879944 seconds time elapsed
+
+      59.987148000 seconds user
+       0.003999000 seconds sys
+
+

@@ -1,0 +1,21 @@
+# started on Sat Feb 28 08:56:13 2026
+
+
+ Performance counter stats for 'system wide':
+
+        78,911,009      cycles                                                        (22.08%)
+       121,297,105      instructions              #    1.54  insn per cycle         
+                                                  #    0.16  stalled cycles per insn  (50.84%)
+        18,926,193      stalled-cycles-frontend   #   23.98% frontend cycles idle     (75.34%)
+        12,870,085      stalled-cycles-backend    #   16.31% backend cycles idle      (92.66%)
+        39,373,844      cache-references                                            
+           334,499      cache-misses              #    0.850 % of all cache refs    
+        39,373,110      L1-dcache-loads                                             
+           217,817      L1-dcache-load-misses     #    0.55% of all L1-dcache accesses  (50.79%)
+           992,143      L1-icache-load-misses                                         (25.78%)
+           183,036      dTLB-load-misses                                              (7.92%)
+     <not counted>      br_pred                                                       (0.00%)
+     <not counted>      br_mis_pred                                                   (0.00%)
+
+       0.015559461 seconds time elapsed
+

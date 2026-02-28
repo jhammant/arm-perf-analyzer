@@ -1,0 +1,25 @@
+# started on Sat Feb 28 08:54:06 2026
+
+
+ Performance counter stats for 'python3 /tmp/sqlite_heavy.py':
+
+    77,533,377,198      cycles                                                        (58.32%)
+   135,765,699,661      instructions              #    1.75  insn per cycle         
+                                                  #    0.17  stalled cycles per insn  (58.29%)
+     8,752,203,444      stalled-cycles-frontend   #   11.29% frontend cycles idle     (58.31%)
+    23,626,201,313      stalled-cycles-backend    #   30.47% backend cycles idle      (58.31%)
+    54,060,955,110      cache-references                                              (58.28%)
+       950,179,869      cache-misses              #    1.758 % of all cache refs      (58.34%)
+    53,929,369,708      L1-dcache-loads                                               (58.42%)
+       941,315,404      L1-dcache-load-misses     #    1.75% of all L1-dcache accesses  (50.03%)
+       688,979,114      L1-icache-load-misses                                         (50.02%)
+       700,477,188      dTLB-load-misses                                              (50.02%)
+    26,131,737,331      br_pred                                                       (50.00%)
+       104,116,191      br_mis_pred                                                   (49.97%)
+
+      30.241773912 seconds time elapsed
+
+      15.436551000 seconds user
+      12.681880000 seconds sys
+
+

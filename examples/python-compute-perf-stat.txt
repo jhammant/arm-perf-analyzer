@@ -1,0 +1,25 @@
+# started on Sat Feb 28 08:55:50 2026
+
+
+ Performance counter stats for 'python3 /tmp/python_bench.py':
+
+    22,975,596,293      cycles                                                        (58.27%)
+    66,897,429,790      instructions              #    2.91  insn per cycle         
+                                                  #    0.04  stalled cycles per insn  (58.27%)
+       613,998,588      stalled-cycles-frontend   #    2.67% frontend cycles idle     (58.27%)
+     2,631,037,394      stalled-cycles-backend    #   11.45% backend cycles idle      (58.27%)
+    20,763,204,407      cache-references                                              (58.28%)
+        28,714,944      cache-misses              #    0.138 % of all cache refs      (58.33%)
+    20,766,335,062      L1-dcache-loads                                               (58.38%)
+        29,113,382      L1-dcache-load-misses     #    0.14% of all L1-dcache accesses  (50.08%)
+         8,522,356      L1-icache-load-misses                                         (50.08%)
+        96,645,870      dTLB-load-misses                                              (50.06%)
+    12,572,919,320      br_pred                                                       (50.01%)
+        56,897,815      br_mis_pred                                                   (49.96%)
+
+       7.957437433 seconds time elapsed
+
+       7.940912000 seconds user
+       0.016001000 seconds sys
+
+
