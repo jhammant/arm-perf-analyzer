@@ -143,3 +143,8 @@ Compares fusion behaviour across Apple Silicon vs Neoverse-N1 vs x86.
 ## License
 
 MIT
+
+## Related
+
+- **[x86-perf-analyzer](https://github.com/jhammant/x86-perf-analyzer)** — Intel DSB + AMD OpCache analysis, TopDown methodology, loop fission detection
+- Apple Silicon analyzer — coming soon (separate repo)
