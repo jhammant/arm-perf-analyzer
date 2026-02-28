@@ -1,8 +1,8 @@
 # arm-perf-analyzer
 
-Profile and optimize hot loops on ARM and x86. Finds decode bottlenecks, cache misses, branch mispredictions, and stall cycles. Suggests concrete optimizations.
+Profile and optimize hot loops on ARM (AWS Graviton, Ampere Altra, Apple Silicon) and x86 (Intel, AMD). Finds decode bottlenecks, cache misses, branch mispredictions, and stall cycles. Suggests concrete, architecture-specific optimizations.
 
-## Example: Profiling Ollama (LLM Inference) on Neoverse-N1
+## Example: Profiling Ollama (LLM Inference) on AWS Graviton 2
 
 ```
 ═══════════════════════════════════════════════════════════
@@ -61,7 +61,7 @@ Recommendations:
 
 ## Quick Start
 
-### Linux (ARM — Neoverse-N1/N2/V1)
+### Linux (ARM — AWS Graviton / Ampere Altra)
 
 ```bash
 ./analyze.sh ./my-program --args "input.txt"
@@ -104,13 +104,13 @@ Compares fusion behaviour across Apple Silicon vs Neoverse-N1 vs x86.
 
 | Platform | Hardware | Tool |
 |----------|----------|------|
-| Linux ARM | Neoverse-N1 (Graviton 2), N2 (Graviton 3), V1/V2 | `perf` |
+| Linux ARM | **AWS Graviton 2** (Neoverse-N1), **Graviton 3** (N2/V1), **Graviton 4** (V2), Ampere Altra/AmpereOne | `perf` |
 | Linux x86 | Intel Skylake+, AMD Zen 3+ | `perf` |
 | macOS | Apple M1/M2/M3/M4 | `powermetrics`, `xctrace` |
 
 ## Architecture Comparison
 
-| Feature | Apple M4 (P-core) | Neoverse-N1 | Intel Skylake |
+| Feature | Apple M4 (P-core) | Graviton 2 (N1) | Intel Skylake |
 |---------|-------------------|-------------|---------------|
 | Decode width | 8 insn/cycle | 4 insn/cycle | 4 uops/cycle (from DSB) |
 | Issue width | ~9 µops/cycle | 8 µops/cycle | 6 µops/cycle |
