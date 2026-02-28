@@ -1,0 +1,29 @@
+# started on Sat Feb 28 00:30:54 2026
+
+
+ Performance counter stats for '/tmp/bench':
+
+       647,286,644      cycles                                                        (38.24%)
+     1,085,674,153      instructions              #    1.68  insn per cycle         
+                                                  #    0.26  stalled cycles per insn  (39.99%)
+         5,598,401      stalled-cycles-frontend   #    0.86% frontend cycles idle     (41.74%)
+       278,371,734      stalled-cycles-backend    #   43.01% backend cycles idle      (43.49%)
+       350,510,341      cache-references                                              (45.25%)
+        10,457,854      cache-misses              #    2.984 % of all cache refs      (47.01%)
+       240,574,712      branch-loads                                                  (48.76%)
+         1,730,517      branch-misses                                                 (42.08%)
+       311,992,641      L1-icache-loads                                               (42.09%)
+           218,991      L1-icache-load-misses     #    0.07% of all L1-icache accesses  (40.73%)
+       342,754,948      L1-dcache-loads                                               (38.97%)
+         9,736,508      L1-dcache-load-misses     #    2.84% of all L1-dcache accesses  (37.21%)
+       254,520,251      iTLB-loads                                                    (35.46%)
+               771      iTLB-load-misses          #    0.00% of all iTLB cache accesses  (33.71%)
+       352,185,029      dTLB-loads                                                    (31.95%)
+           103,671      dTLB-load-misses          #    0.03% of all dTLB cache accesses  (31.57%)
+
+       0.232845212 seconds time elapsed
+
+       0.220768000 seconds user
+       0.012041000 seconds sys
+
+

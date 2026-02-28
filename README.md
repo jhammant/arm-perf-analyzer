@@ -1,127 +1,144 @@
 # arm-perf-analyzer
 
-Profile and optimize hot loops on ARM (Neoverse-N1 / Apple Silicon).
+Profile and optimize hot loops on ARM and x86. Finds decode bottlenecks, cache misses, branch mispredictions, and stall cycles. Suggests concrete optimizations.
 
-Finds decode bottlenecks, cache misses, branch mispredictions, stall cycles, and macro-op fusion opportunities in your code. Suggests concrete optimizations.
+## Example: Profiling Ollama (LLM Inference) on Neoverse-N1
 
-## What it does
+```
+═══════════════════════════════════════════════════════════
+  ARM Performance Analyzer — aarch64
+  Binary: ollama (qwen2.5:14b, system-wide during inference)
+  CPU: Neoverse-N1
+═══════════════════════════════════════════════════════════
 
-1. **Profile** — Runs your binary with hardware performance counters
-2. **Annotate** — Shows per-function and per-line hotspots
-3. **Analyze** — Identifies bottlenecks (frontend stalls, backend stalls, cache thrashing, branch misses)
-4. **Suggest** — Recommends loop fission, alignment, prefetch, branchless alternatives
-5. **Compare** — Before/after benchmarking
-6. **Fusion Analysis** — Identifies macro-op fusion opportunities (Apple Silicon vs standard ARM)
+IPC:              2.08 (52% of theoretical 4.0 max)
+Frontend stalls:  3.8%  ← NOT the bottleneck
+Backend stalls:   21.9% ← THIS is where time is lost
+L1I miss rate:    0.33%
+L1D miss rate:    0.61%
+L2 refill rate:   5.6%
+Branch miss rate: 0.10%
+
+Top hot functions:
+  9.99%  ollama  0x011f88fc  (GGML matmul kernel)
+  5.27%  ollama  0x011f88f0  (adjacent — same inner loop)
+  5.21%  ollama  0x0128d8fc
+
+~15% of ALL cycles in just two adjacent addresses — that's the
+quantized dot product inner loop.
+
+Issues:
+🔴 [Backend]  21.9% backend stalls — execution/memory bottleneck
+🟡 [IPC]      2.08 — room for improvement (max 4.0)
+
+Recommendations:
+- Break dependency chains — use 4 accumulators instead of 2
+- Software prefetch next blocks (L2 latency = 10 cycles)
+- Consider loop unrolling to 4 blocks per iteration
+- ROB is only 128 entries — keep dependency chains short
+```
+
+Full example outputs in [`examples/`](examples/).
+
+## Example: Hash Table Benchmark
+
+```
+IPC:              1.68 (42% of theoretical max)
+Frontend stalls:  0.9%
+Backend stalls:   43.0% ← Memory-bound (random access pattern)
+L1D miss rate:    2.84%
+Branch miss rate: 0.72%
+
+Issues:
+🔴 [Backend] 43.0% backend stalls — execution/memory bottleneck
+🟠 [IPC]     1.68 is below 50% efficiency
+
+Recommendations:
+- Add __builtin_prefetch() for predictable access patterns
+- AoS → SoA transformation for hot fields
+- Break dependency chains with independent accumulators
+```
 
 ## Quick Start
 
-### Linux (Neoverse-N1/N2/V1)
+### Linux (ARM — Neoverse-N1/N2/V1)
 
 ```bash
-# Profile a binary
 ./analyze.sh ./my-program --args "input.txt"
-
-# Profile a specific function
 ./analyze.sh ./my-program --function hot_loop
 ```
+
+### Linux (x86 — Intel/AMD)
+
+```bash
+./analyze-x86.sh ./my-program --args "input.txt"
+```
+
+x86 analysis includes:
+- **Intel DSB (Decoded Stream Buffer)** hit rate and capacity analysis
+- **AMD OpCache** hit/miss tracking
+- **DSB→MITE switches** (~5 cycle penalty each)
+- **Top-down microarchitecture breakdown** (Retiring / Bad Speculation / Frontend / Backend)
+- **Loop fission suggestions** when loop body exceeds DSB capacity (~4000 uops)
+- **Macro-op fusion** detection (CMP+Jcc, TEST+Jcc)
 
 ### macOS (Apple Silicon M1/M2/M3/M4)
 
 ```bash
-# Profile a binary (uses powermetrics, xctrace, sample)
 ./analyze-mac.sh ./my-program --args "input.txt"
-
-# Profile with specific chip model
 ./analyze-mac.sh ./my-program --chip m4
-
-# Specific function + longer sampling
-./analyze-mac.sh ./my-program --function hot_loop --duration 10
 ```
 
-**Note:** `powermetrics` requires `sudo` for hardware counters. Without sudo, the analyzer falls back to timing-based analysis and stack sampling.
+`powermetrics` requires `sudo` for hardware counters. Falls back to timing + stack sampling without it.
 
 ### Fusion Analysis (cross-platform)
 
 ```bash
-# Analyze a binary for macro-op fusion
 node fusion-check.js ./my-program
-
-# Analyze specific function with details
 node fusion-check.js ./my-program --function hot_loop --verbose
-
-# Analyze existing objdump output
-node fusion-check.js --objdump disassembly.txt
 ```
+
+Compares fusion behaviour across Apple Silicon vs Neoverse-N1 vs x86.
 
 ## Supported Hardware
 
-### Linux (perf)
-- ARM Neoverse-N1 (Ampere Altra, Oracle Cloud, AWS Graviton 2)
-- ARM Neoverse-N2 (AWS Graviton 3)
-- ARM Neoverse-V1/V2 (AWS Graviton 3E/4)
+| Platform | Hardware | Tool |
+|----------|----------|------|
+| Linux ARM | Neoverse-N1 (Graviton 2), N2 (Graviton 3), V1/V2 | `perf` |
+| Linux x86 | Intel Skylake+, AMD Zen 3+ | `perf` |
+| macOS | Apple M1/M2/M3/M4 | `powermetrics`, `xctrace` |
 
-### macOS (powermetrics + Instruments)
-- Apple M1 (Firestorm/Icestorm)
-- Apple M2 (Avalanche/Blizzard)
-- Apple M3 (Everest/Sawtooth)
-- Apple M4 (enhanced Everest/Sawtooth)
+## Architecture Comparison
 
-## Apple Silicon Architecture Reference
-
-### P-core (Performance) — Firestorm-class
-
-| Feature | Apple M-series | Neoverse-N1 |
-|---------|---------------|-------------|
-| Decode width | 8 insn/cycle | 4 insn/cycle |
-| Issue width | ~9 µops/cycle | 8 µops/cycle |
-| ROB size | ~630 entries | 128 entries |
-| L1I cache | 192KB | 64KB |
-| L1D cache | 128KB | 64KB |
-| L2 cache | 12-16MB (shared) | 1MB |
-| Branch mispredict | ~14 cycles | ~13 cycles |
-| Max fusion/cycle | 3 pairs | 1 pair |
-
-### Macro-op Fusion
-
-Apple Silicon fuses more aggressively than standard ARM cores:
-
-**Standard (both Apple + N1):**
-- CMP/CMN/TST + B.cond
-- ADDS/SUBS + B.cond
-
-**Apple-specific (not on N1/N2):**
-- ADD/SUB + B.cond
-- ADRP + ADD (address generation fusion)
-- ADRP + LDR (address generation fusion)
-- AESE/AESD + AESMC (crypto fusion)
-
-### Key Cycle Counts (Firestorm P-core)
-
-From [Dougall Johnson's reverse engineering](https://dougallj.github.io/applecpu/firestorm.html):
-
-- ADD/SUB/CMP: 1 cycle latency, 6/cycle throughput
-- MUL/MADD: 3 cycle latency, 2/cycle throughput
-- LDR (L1 hit): 3 cycle latency, 2/cycle throughput
-- FADD: 3 cycle latency, 4/cycle throughput
-- FMUL/FMADD: 4 cycle latency, 4/cycle throughput
-- AESE+AESMC (fused): 5 cycle latency, 2/cycle throughput
+| Feature | Apple M4 (P-core) | Neoverse-N1 | Intel Skylake |
+|---------|-------------------|-------------|---------------|
+| Decode width | 8 insn/cycle | 4 insn/cycle | 4 uops/cycle (from DSB) |
+| Issue width | ~9 µops/cycle | 8 µops/cycle | 6 µops/cycle |
+| ROB size | ~630 entries | 128 entries | 224 entries |
+| L1I cache | 192KB | 64KB | 32KB + 1.5K uop DSB |
+| L1D cache | 128KB | 64KB | 32KB |
+| Branch mispredict | ~14 cycles | ~13 cycles | ~15 cycles |
+| Fusion pairs/cycle | 3 | 1 | 1 |
 
 ## Files
 
 | File | Description |
 |------|-------------|
-| `analyze.sh` | Linux profiling script (uses `perf`) |
-| `analyze-mac.sh` | macOS profiling script (powermetrics, xctrace, sample) |
+| `analyze.sh` | ARM Linux profiling (perf) |
+| `analyze-x86.sh` | x86 Linux profiling (perf, DSB/OpCache analysis) |
+| `analyze-mac.sh` | macOS profiling (powermetrics, xctrace, sample) |
 | `analyzer.js` | Neoverse-N1 analysis engine |
-| `analyzer-apple.js` | Apple Silicon analysis engine (M1-M4 microarchitecture) |
+| `analyzer-x86.js` | Intel/AMD analysis (DSB, OpCache, TopDown) |
+| `analyzer-apple.js` | Apple Silicon analysis (M1-M4) |
 | `fusion-check.js` | Cross-platform macro-op fusion analyzer |
+| `examples/` | Real profiling output from Ollama and benchmarks |
 
 ## References
 
+- [Agner Fog — Instruction Tables](https://www.agner.org/optimize/instruction_tables.pdf)
+- [Intel Optimization Manual](https://www.intel.com/content/www/us/en/docs/intrinsics-guide/)
 - [Dougall Johnson — Apple CPU Microarchitecture](https://dougallj.github.io/applecpu/firestorm.html)
-- [LLVM Apple CPU Scheduling Models](https://github.com/llvm/llvm-project/tree/main/llvm/lib/Target/AArch64)
-- [Anandtech M1 Deep Dive](https://www.anandtech.com/show/16226/apple-silicon-m1-a14-deep-dive)
-- [Apple WWDC Performance Sessions](https://developer.apple.com/videos/)
+- [ARM Neoverse-N1 TRM](https://developer.arm.com/documentation/100616/latest)
 
 ## License
 

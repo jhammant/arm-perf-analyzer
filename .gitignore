@@ -1,1 +1,5 @@
 results/
+perf.data
+results/*/perf.data
+*.data
+*.data.old

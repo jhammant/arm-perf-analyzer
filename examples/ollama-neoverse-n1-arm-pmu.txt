@@ -1,0 +1,12 @@
+
+ Performance counter stats for 'system wide':
+
+   113,424,564,732      l1i_cache                                                   
+        77,631,172      l1i_cache_refill                                            
+    92,853,018,097      l1d_cache                                                   
+       863,696,206      l1d_cache_refill                                            
+    10,413,061,646      l2d_cache                                                   
+       579,628,616      l2d_cache_refill                                            
+
+      10.002231406 seconds time elapsed
+

@@ -1,0 +1,60 @@
+# To display the perf.data header info, please use --header/--header-only options.
+#
+#
+# Total Lost Samples: 0
+#
+# Samples: 39K of event 'cycles'
+# Event count (approx.): 110225274713
+#
+# Overhead  Command          Shared Object               Symbol                                                                                    
+# ........  ...............  ..........................  ..........................................................................................
+#
+     9.99%  ollama           ollama                      [.] 0x00000000011f88fc
+            |
+            ---0xaaaab4a888fc
+               |          
+               |--8.78%--0xaaaab4a8980c
+               |          _IO_list_lock
+               |          0xffffb11f9e9c
+               |          
+                --1.21%--0xaaaab4a882d4
+                          0xaaaab4a98ba0
+                          0xaaaab48c9db4
+                          0xaaaab493f43c
+                          0xaaaab493f0d0
+                          0xaaaab494045c
+                          0xaaaab49444a4
+                          0xaaaab485bb4c
+                          0xaaaab3c2fb0c
+
+     5.27%  ollama           ollama                      [.] 0x00000000011f88f0
+            |
+            ---0xaaaab4a888f0
+               |          
+               |--4.70%--0xaaaab4a8980c
+               |          _IO_list_lock
+               |          0xffffb11f9e9c
+               |          
+                --0.57%--0xaaaab4a882d4
+                          0xaaaab4a98ba0
+                          0xaaaab48c9db4
+                          0xaaaab493f43c
+                          0xaaaab493f0d0
+                          0xaaaab494045c
+                          0xaaaab49444a4
+                          0xaaaab485bb4c
+                          0xaaaab3c2fb0c
+
+     5.21%  ollama           ollama                      [.] 0x000000000128d8fc
+            |
+            ---0xaaaab4b1d8fc
+               0xaaaab4a87048
+               0xaaaab4a88ba4
+               |          
+               |--4.49%--0xaaaab4a8980c
+               |          _IO_list_lock
+               |          0xffffb11f9e9c
+               |          
+                --0.72%--0xaaaab4a882d4
+                          0xaaaab4a98ba0
+                          0xaaaab48c9db4
