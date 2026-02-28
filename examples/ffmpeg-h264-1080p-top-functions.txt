@@ -1,0 +1,50 @@
+# To display the perf.data header info, please use --header/--header-only options.
+#
+#
+# Total Lost Samples: 0
+#
+# Samples: 12K of event 'cycles'
+# Event count (approx.): 27596617334
+#
+# Overhead  Command          Shared Object               Symbol                                                                                                                        
+# ........  ...............  ..........................  ..............................................................................................................................
+#
+     3.34%  vf#0:0           libx264.so.165              [.] x264_8_pixel_sad_x4_8x8_neon
+            |
+            ---x264_8_pixel_sad_x4_8x8_neon
+               0xffff9a429e9c
+
+     2.77%  vf#0:0           libx264.so.165              [.] x264_8_pixel_sad_x4_16x16_neon_dotprod
+            |
+            ---x264_8_pixel_sad_x4_16x16_neon_dotprod
+               0xffff9a429e9c
+
+     2.67%  vf#0:0           libx264.so.165              [.] x264_8_hpel_filter_neon
+            |
+            ---x264_8_hpel_filter_neon
+               0xffff9a429e9c
+
+     2.18%  vf#0:0           libc.so.6                   [.] svc_run
+            |
+            ---svc_run
+               |          
+                --2.16%--0xffff995e6678
+                          0xffff9a429e9c
+
+     1.72%  vf#0:0           libx264.so.165              [.] x264_8_pixel_avg2_w16_neon
+            |
+            ---x264_8_pixel_avg2_w16_neon
+               0xffff9a429e9c
+
+     1.60%  vf#0:0           libx264.so.165              [.] x264_8_pixel_avg2_w8_neon
+            |
+            ---x264_8_pixel_avg2_w8_neon
+               0xffff9a429e9c
+
+     1.59%  vf#0:0           libx264.so.165              [.] x264_8_pixel_sad_16x16_neon_dotprod
+            |
+            ---x264_8_pixel_sad_16x16_neon_dotprod
+               0xffff9a429e9c
+
+     1.54%  vf#0:0           libx264.so.165              [.] x264_8_pixel_sad_x3_8x8_neon
+            |

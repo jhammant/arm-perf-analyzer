@@ -1,0 +1,14 @@
+# started on Sat Feb 28 07:09:53 2026
+
+
+ Performance counter stats for 'system wide':
+
+    28,290,976,766      l1i_cache                                                   
+     1,413,122,475      l1i_cache_refill                                            
+    35,271,637,219      l1d_cache                                                   
+       656,601,923      l1d_cache_refill                                            
+     3,044,919,826      l2d_cache                                                   
+       297,284,856      l2d_cache_refill                                            
+
+      10.003760238 seconds time elapsed
+
