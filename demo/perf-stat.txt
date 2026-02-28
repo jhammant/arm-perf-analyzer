@@ -1,0 +1,22 @@
+# perf stat output for log_analyzer (original)
+# CPU: Neoverse-N1 (Ampere Altra), aarch64
+# Flags: gcc -O2 -march=armv8.2-a+dotprod -mtune=neoverse-n1
+# Workload: 500K lines x 30 passes = 15M lines analyzed
+
+ Performance counter stats for './log_analyzer 500000 30 -s':
+
+    11,352,894,470      cycles
+    22,192,837,981      instructions              #    1.95  insn per cycle
+                                                  #    0.13  stalled cycles per insn
+       873,913,726      stalled-cycles-frontend   #    7.70% frontend cycles idle
+     2,962,968,837      stalled-cycles-backend    #   26.10% backend cycles idle
+     5,474,666,458      cache-references
+        38,518,125      cache-misses              #    0.704 % of all cache refs
+     5,473,271,714      L1-dcache-loads
+        39,335,815      L1-dcache-load-misses     #    0.72% of all L1-dcache accesses
+         6,168,803      L1-icache-load-misses
+        28,555,269      dTLB-load-misses
+     4,737,968,477      branch-loads
+        61,244,058      branch-misses             #    1.29% of all branches
+
+       3.878 seconds time elapsed

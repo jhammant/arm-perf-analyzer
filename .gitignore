@@ -1,5 +1,26 @@
-results/
-perf.data
-results/*/perf.data
+# Binaries
+*.o
+*.so
+*.exe
+benchmark
+log_analyzer
+demo/log_analyzer
+llama-opt/benchmark
+
+# Perf data (large binary files)
 *.data
 *.data.old
+perf.data
+results/*/perf.data
+results/*/perf.data.old
+demo/perf.data
+demo/perf.data.old
+
+# Results (keep examples/ as curated showcase)
+results/
+
+# LinkedIn drafts
+linkedin-post.md
+
+# OS
+.DS_Store

@@ -1,0 +1,616 @@
+# To display the perf.data header info, please use --header/--header-only options.
+#
+#
+# Total Lost Samples: 0
+#
+# Samples: 21K of event 'cycles'
+# Event count (approx.): 11536829387
+#
+# Overhead  Command       Shared Object          Symbol                            
+# ........  ............  .....................  ..................................
+#
+    24.69%  log_analyzer  log_analyzer           [.] main
+            |
+            ---main
+               __libc_start_call_main
+               __libc_start_main@@GLIBC_2.34
+               _start
+
+    17.95%  log_analyzer  libc.so.6              [.] __GI_____strtod_l_internal
+            |
+            ---__GI_____strtod_l_internal
+               |          
+                --17.75%--main
+                          __libc_start_call_main
+                          __libc_start_main@@GLIBC_2.34
+                          _start
+
+     6.43%  log_analyzer  libc.so.6              [.] str_to_mpn.part.0.constprop.0
+            |
+            ---str_to_mpn.part.0.constprop.0
+               |          
+                --6.00%--__GI_____strtod_l_internal
+                          main
+                          __libc_start_call_main
+                          __libc_start_main@@GLIBC_2.34
+                          _start
+
+     5.71%  log_analyzer  libc.so.6              [.] strchr
+            |
+            ---strchr
+               __libc_start_call_main
+               __libc_start_main@@GLIBC_2.34
+               _start
+
+     4.45%  log_analyzer  libc.so.6              [.] __GI_____strtoll_l_internal
+            |
+            ---__GI_____strtoll_l_internal
+               |          
+                --4.22%--main
+                          __libc_start_call_main
+                          __libc_start_main@@GLIBC_2.34
+                          _start
+
+     3.96%  log_analyzer  libc.so.6              [.] __aarch64_swp4_rel
+            |
+            ---__aarch64_swp4_rel
+               main
+               __libc_start_call_main
+               __libc_start_main@@GLIBC_2.34
+               _start
+
+     3.79%  log_analyzer  libc.so.6              [.] __aarch64_cas4_acq
+            |
+            ---__aarch64_cas4_acq
+               main
+               __libc_start_call_main
+               __libc_start_main@@GLIBC_2.34
+               _start
+
+     3.10%  log_analyzer  libc.so.6              [.] __memcpy_generic
+            |
+            ---__memcpy_generic
+               |          
+               |--1.68%--_IO_fgets
+               |          main
+               |          __libc_start_call_main
+               |          __libc_start_main@@GLIBC_2.34
+               |          _start
+               |          
+                --1.25%--main
+                          __libc_start_call_main
+                          __libc_start_main@@GLIBC_2.34
+                          _start
+
+     2.97%  log_analyzer  [unknown]              [k] 0xffffb2decd36bfa0
+            |
+            ---0xffffb2decd36bfa0
+               0xffffb2decd31d664
+               0xffffb2decced3b78
+               0xffffb2decced3f00
+               0xffffb2decd0e08ec
+               0xffffb2deccfd9ec4
+               0xffffb2deccfdaaec
+               0xffffb2deccfdcd94
+               0xffffb2deccfdce48
+               0xffffb2deccc0d168
+               0xffffb2deccc0d244
+               0xffffb2deccc0d3a4
+               0xffffb2decdcdc218
+               0xffffb2decdcde358
+               0xffffb2deccbf1e38
+               read
+               _IO_file_underflow@@GLIBC_2.17
+               _IO_default_uflow
+               _IO_getline_info
+               _IO_fgets
+               main
+               __libc_start_call_main
+               __libc_start_main@@GLIBC_2.34
+               _start
+
+     2.88%  log_analyzer  libc.so.6              [.] __memchr_generic
+            |
+            ---__memchr_generic
+               _IO_fgets
+               main
+               __libc_start_call_main
+               __libc_start_main@@GLIBC_2.34
+               _start
+
+     2.71%  log_analyzer  libc.so.6              [.] _IO_fgets
+            |
+            ---_IO_fgets
+               |          
+                --2.62%--main
+                          __libc_start_call_main
+                          __libc_start_main@@GLIBC_2.34
+                          _start
+
+     2.50%  log_analyzer  [unknown]              [k] 0xffffb2decd36bf84
+            |
+            ---0xffffb2decd36bf84
+               0xffffb2decd31d664
+               0xffffb2decced3b78
+               0xffffb2decced3f00
+               0xffffb2decd0e08ec
+               0xffffb2deccfd9ec4
+               0xffffb2deccfdaaec
+               0xffffb2deccfdcd94
+               0xffffb2deccfdce48
+               0xffffb2deccc0d168
+               0xffffb2deccc0d244
+               0xffffb2deccc0d3a4
+               0xffffb2decdcdc218
+               0xffffb2decdcde358
+               0xffffb2deccbf1e38
+               read
+               _IO_file_underflow@@GLIBC_2.17
+               _IO_default_uflow
+               _IO_getline_info
+               _IO_fgets
+               main
+               __libc_start_call_main
+               __libc_start_main@@GLIBC_2.34
+               _start
+
+     2.30%  log_analyzer  libc.so.6              [.] __strlen_mte
+            |
+            ---__strlen_mte
+               main
+               __libc_start_call_main
+               __libc_start_main@@GLIBC_2.34
+               _start
+
+     2.14%  log_analyzer  libc.so.6              [.] _IO_getline_info
+            |
+            ---_IO_getline_info
+               |          
+                --2.04%--_IO_fgets
+                          main
+                          __libc_start_call_main
+                          __libc_start_main@@GLIBC_2.34
+                          _start
+
+     2.09%  log_analyzer  libc.so.6              [.] strcmp
+            |
+            ---strcmp
+               __libc_start_call_main
+               __libc_start_main@@GLIBC_2.34
+               _start
+
+     1.55%  log_analyzer  libc.so.6              [.] round_and_return
+            |
+            ---round_and_return
+               |          
+                --1.44%--__GI_____strtod_l_internal
+                          main
+                          __libc_start_call_main
+                          __libc_start_main@@GLIBC_2.34
+                          _start
+
+     1.26%  log_analyzer  libc.so.6              [.] msort_with_tmp.part.0
+            |
+            ---msort_with_tmp.part.0
+               |          
+                --1.21%--msort_with_tmp.part.0
+                          |          
+                           --1.18%--msort_with_tmp.part.0
+                                     |          
+                                      --1.15%--msort_with_tmp.part.0
+                                                |          
+                                                 --1.10%--msort_with_tmp.part.0
+                                                           |          
+                                                            --1.07%--msort_with_tmp.part.0
+                                                                      |          
+                                                                       --1.02%--msort_with_tmp.part.0
+                                                                                 |          
+                                                                                  --0.98%--msort_with_tmp.part.0
+                                                                                            |          
+                                                                                             --0.91%--msort_with_tmp.part.0
+                                                                                                       |          
+                                                                                                        --0.83%--msort_with_tmp.part.0
+                                                                                                                  |          
+                                                                                                                   --0.76%--msort_with_tmp.part.0
+                                                                                                                             |          
+                                                                                                                              --0.67%--msort_with_tmp.part.0
+                                                                                                                                        |          
+                                                                                                                                         --0.58%--msort_with_tmp.part.0
+
+     0.93%  log_analyzer  [unknown]              [k] 0xffffb2deccecf454
+            |
+            ---0xffffb2deccecf454
+               0xffffb2decced3630
+               0xffffb2decced3ad0
+               0xffffb2decced3f00
+               0xffffb2decd0e08ec
+               0xffffb2deccfd9ec4
+               0xffffb2deccfdaaec
+               0xffffb2deccfdcd94
+               0xffffb2deccfdce48
+               0xffffb2deccc0d168
+               0xffffb2deccc0d244
+               0xffffb2deccc0d3a4
+               0xffffb2decdcdc218
+               0xffffb2decdcde358
+               0xffffb2deccbf1e38
+               read
+               _IO_file_underflow@@GLIBC_2.17
+               _IO_default_uflow
+               _IO_getline_info
+               _IO_fgets
+               main
+               __libc_start_call_main
+               __libc_start_main@@GLIBC_2.34
+               _start
+
+     0.80%  log_analyzer  [unknown]              [k] 0xffffb2deccc0d22c
+            |
+            ---0xffffb2deccc0d22c
+               0xffffb2deccc0d3a4
+               0xffffb2decdcdc218
+               0xffffb2decdcde358
+               0xffffb2deccbf1e38
+               read
+               _IO_file_underflow@@GLIBC_2.17
+               _IO_default_uflow
+               _IO_getline_info
+               _IO_fgets
+               main
+               __libc_start_call_main
+               __libc_start_main@@GLIBC_2.34
+               _start
+
+     0.65%  log_analyzer  libc.so.6              [.] __mpn_lshift
+            |
+            ---__mpn_lshift
+               main
+               __libc_start_call_main
+               __libc_start_main@@GLIBC_2.34
+               _start
+
+     0.30%  log_analyzer  libc.so.6              [.] strtod
+     0.30%  log_analyzer  libc.so.6              [.] read
+     0.30%  log_analyzer  [unknown]              [k] 0xffffb2decd693160
+     0.28%  log_analyzer  libc.so.6              [.] __GI___strnlen
+     0.26%  log_analyzer  log_analyzer           [.] strchr@plt
+     0.21%  log_analyzer  [unknown]              [k] 0xffffb2decd36bfc0
+     0.20%  log_analyzer  log_analyzer           [.] cmp_double
+     0.19%  log_analyzer  [unknown]              [k] 0xffffb2decd36bfb0
+     0.19%  log_analyzer  log_analyzer           [.] strncpy@plt
+     0.18%  log_analyzer  [unknown]              [k] 0xffffb2decd36bfd0
+     0.18%  log_analyzer  libc.so.6              [.] __GI___memset_generic
+     0.17%  log_analyzer  libc.so.6              [.] strncpy
+     0.16%  log_analyzer  libc.so.6              [.] __GI_strtoll
+     0.15%  log_analyzer  libc.so.6              [.] _IO_getline
+     0.13%  log_analyzer  libc.so.6              [.] __mpn_construct_double
+     0.13%  log_analyzer  log_analyzer           [.] cmp_ip_count
+     0.10%  log_analyzer  log_analyzer           [.] fgets@plt
+     0.10%  log_analyzer  [unknown]              [k] 0xffffb2decd313fa0
+     0.09%  log_analyzer  [unknown]              [k] 0xffffb2decd38b598
+     0.09%  log_analyzer  libc.so.6              [.] _IO_file_underflow@@GLIBC_2.17
+     0.08%  log_analyzer  libc.so.6              [.] __uflow
+     0.07%  log_analyzer  [unknown]              [k] 0xffffb2decd3140d0
+     0.07%  log_analyzer  log_analyzer           [.] strtod@plt
+     0.07%  log_analyzer  [unknown]              [k] 0xffffb2decced3ca8
+     0.06%  log_analyzer  [unknown]              [k] 0xffffb2deccd43f40
+     0.06%  log_analyzer  [unknown]              [k] 0xffffb2decd36bfb4
+     0.05%  log_analyzer  libc.so.6              [.] _IO_default_uflow
+     0.05%  log_analyzer  [unknown]              [k] 0xffffb2decd00cfec
+     0.05%  log_analyzer  [unknown]              [k] 0xffffb2deccd5a504
+     0.05%  log_analyzer  [unknown]              [k] 0xffffb2decd00cf6c
+     0.04%  log_analyzer  libc.so.6              [.] __GI___qsort_r
+     0.04%  log_analyzer  [unknown]              [k] 0xffffb2decced3b08
+     0.04%  log_analyzer  [unknown]              [k] 0xffffb2decd36ba70
+     0.04%  log_analyzer  [unknown]              [k] 0xffffb2deccecf470
+     0.04%  log_analyzer  [unknown]              [k] 0xffffb2decced37a0
+     0.04%  log_analyzer  [unknown]              [k] 0xffffb2deccc8e658
+     0.04%  log_analyzer  [unknown]              [k] 0xffffb2decd0e08bc
+     0.04%  log_analyzer  [unknown]              [k] 0xffffb2decd0034ec
+     0.04%  log_analyzer  [unknown]              [k] 0xffffb2decd36bfbc
+     0.04%  log_analyzer  log_analyzer           [.] strcmp@plt
+     0.03%  log_analyzer  [unknown]              [k] 0xffffb2decd6930b8
+     0.03%  log_analyzer  [unknown]              [k] 0xffffb2decd00350c
+     0.03%  log_analyzer  [unknown]              [k] 0xffffb2decced3c80
+     0.03%  log_analyzer  [unknown]              [k] 0xffffb2decd36bfa4
+     0.03%  log_analyzer  [unknown]              [k] 0xffffb2decdce45e4
+     0.03%  log_analyzer  [unknown]              [k] 0xffffb2decd36bfa8
+     0.03%  log_analyzer  [unknown]              [k] 0xffffb2decd38b564
+     0.03%  log_analyzer  [unknown]              [k] 0xffffb2decd38a0f4
+     0.03%  log_analyzer  [unknown]              [k] 0xffffb2decd38b5ac
+     0.02%  log_analyzer  [unknown]              [k] 0xffffb2decd31bab4
+     0.02%  log_analyzer  [unknown]              [k] 0xffffb2decced37a8
+     0.02%  log_analyzer  [unknown]              [k] 0xffffb2decd00f17c
+     0.02%  log_analyzer  [unknown]              [k] 0xffffb2decced3a58
+     0.02%  log_analyzer  [unknown]              [k] 0xffffb2deccd5a524
+     0.02%  log_analyzer  [unknown]              [k] 0xffffb2decd1e07f4
+     0.02%  log_analyzer  [unknown]              [k] 0xffffb2decd36bf94
+     0.02%  log_analyzer  [unknown]              [k] 0xffffb2deccfdab04
+     0.02%  log_analyzer  [unknown]              [k] 0xffffb2decd36bfc8
+     0.02%  log_analyzer  [unknown]              [k] 0xffffb2decced3618
+     0.02%  log_analyzer  [unknown]              [k] 0xffffb2decd36bf9c
+     0.02%  log_analyzer  [unknown]              [k] 0xffffb2decd1e0698
+     0.02%  log_analyzer  [unknown]              [k] 0xffffb2decd006f9c
+     0.02%  log_analyzer  [unknown]              [k] 0xffffb2decd24e9d4
+     0.02%  log_analyzer  [unknown]              [k] 0xffffb2deccfdab00
+     0.02%  log_analyzer  [unknown]              [k] 0xffffb2decd38b580
+     0.02%  log_analyzer  [unknown]              [k] 0xffffb2decd0493b8
+     0.02%  log_analyzer  [unknown]              [k] 0xffffb2deccfd9e38
+     0.02%  log_analyzer  [unknown]              [k] 0xffffb2deccd43f48
+     0.02%  log_analyzer  [unknown]              [k] 0xffffb2decd36bfb8
+     0.02%  log_analyzer  [unknown]              [k] 0xffffb2decd36bf90
+     0.02%  log_analyzer  [unknown]              [k] 0xffffb2decd04931c
+     0.02%  log_analyzer  [unknown]              [k] 0xffffb2decd38b574
+     0.02%  log_analyzer  [unknown]              [k] 0xffffb2decd0492d8
+     0.02%  log_analyzer  [unknown]              [k] 0xffffb2decd31d5cc
+     0.02%  log_analyzer  [unknown]              [k] 0xffffb2decd314100
+     0.02%  log_analyzer  [unknown]              [k] 0xffffb2deccecf4fc
+     0.02%  log_analyzer  [unknown]              [k] 0xffffb2decced3610
+     0.02%  log_analyzer  [unknown]              [k] 0xffffb2decd24e9d0
+     0.02%  log_analyzer  [unknown]              [k] 0xffffb2decd38a0a0
+     0.01%  log_analyzer  [unknown]              [k] 0xffffb2decd00b580
+     0.01%  log_analyzer  [unknown]              [k] 0xffffb2deccee6d74
+     0.01%  log_analyzer  [unknown]              [k] 0xffffb2decd38a0a8
+     0.01%  log_analyzer  [unknown]              [k] 0xffffb2decd049274
+     0.01%  log_analyzer  [unknown]              [k] 0xffffb2decd38a0f0
+     0.01%  log_analyzer  [unknown]              [k] 0xffffb2decd048cfc
+     0.01%  log_analyzer  libc.so.6              [.] _IO_switch_to_get_mode
+     0.01%  log_analyzer  [unknown]              [k] 0xffffb2decd00f12c
+     0.01%  log_analyzer  [unknown]              [k] 0xffffb2deccfdcd84
+     0.01%  log_analyzer  [unknown]              [k] 0xffffb2decd3140cc
+     0.01%  log_analyzer  [unknown]              [k] 0xffffb2decd0e0900
+     0.01%  log_analyzer  [unknown]              [k] 0xffffb2decd00b698
+     0.01%  log_analyzer  [unknown]              [k] 0xffffb2decd0493e0
+     0.01%  log_analyzer  [unknown]              [k] 0xffffb2deccecf49c
+     0.01%  log_analyzer  [unknown]              [k] 0xffffb2deccc0d164
+     0.01%  log_analyzer  [unknown]              [k] 0xffffb2deccecf440
+     0.01%  log_analyzer  [unknown]              [k] 0xffffb2deccecf538
+     0.01%  log_analyzer  [unknown]              [k] 0xffffb2decd00cfe4
+     0.01%  log_analyzer  [unknown]              [k] 0xffffb2deccfdaaf4
+     0.01%  log_analyzer  [unknown]              [k] 0xffffb2deccd3ce94
+     0.01%  log_analyzer  [unknown]              [k] 0xffffb2decd36bf88
+     0.01%  log_analyzer  [unknown]              [k] 0xffffb2decced3754
+     0.01%  log_analyzer  [unknown]              [k] 0xffffb2decdcdd28c
+     0.01%  log_analyzer  [unknown]              [k] 0xffffb2decd255dfc
+     0.01%  log_analyzer  [unknown]              [k] 0xffffb2decd00b5ac
+     0.01%  log_analyzer  [unknown]              [k] 0xffffb2decd003528
+     0.01%  log_analyzer  [unknown]              [k] 0xffffb2decd36bf8c
+     0.01%  log_analyzer  [unknown]              [k] 0xffffb2decced3810
+     0.01%  log_analyzer  [unknown]              [k] 0xffffb2deccfdcd50
+     0.01%  log_analyzer  [unknown]              [k] 0xffffb2deccc0d1a8
+     0.01%  log_analyzer  [unknown]              [k] 0xffffb2decd3140bc
+     0.01%  log_analyzer  [unknown]              [k] 0xffffb2decd36bfc4
+     0.01%  log_analyzer  [unknown]              [k] 0xffffb2deccfdaadc
+     0.01%  log_analyzer  [unknown]              [k] 0xffffb2decd313f5c
+     0.01%  log_analyzer  [unknown]              [k] 0xffffb2decced3614
+     0.01%  log_analyzer  [unknown]              [k] 0xffffb2decced3a24
+     0.01%  log_analyzer  [unknown]              [k] 0xffffb2decd313fd0
+     0.01%  log_analyzer  [unknown]              [k] 0xffffb2decd38a0b8
+     0.01%  log_analyzer  [unknown]              [k] 0xffffb2decced3a5c
+     0.01%  log_analyzer  [unknown]              [k] 0xffffb2deccfdce40
+     0.01%  log_analyzer  [unknown]              [k] 0xffffb2deccc0d1ac
+     0.01%  log_analyzer  [unknown]              [k] 0xffffb2deccc0d128
+     0.01%  log_analyzer  [unknown]              [k] 0xffffb2decd00b5a8
+     0.01%  log_analyzer  [unknown]              [k] 0xffffb2decd0e08c0
+     0.01%  log_analyzer  [unknown]              [k] 0xffffb2decd36e888
+     0.01%  log_analyzer  [unknown]              [k] 0xffffb2decd00709c
+     0.01%  log_analyzer  [unknown]              [k] 0xffffb2decd0e08b4
+     0.01%  log_analyzer  [unknown]              [k] 0xffffb2decced3b7c
+     0.01%  log_analyzer  [unknown]              [k] 0xffffb2decd38b544
+     0.01%  log_analyzer  [unknown]              [k] 0xffffb2deccfd9e3c
+     0.01%  log_analyzer  [unknown]              [k] 0xffffb2decd00cfbc
+     0.01%  log_analyzer  [unknown]              [k] 0xffffb2decd1e0694
+     0.01%  log_analyzer  [unknown]              [k] 0xffffb2decd38a0fc
+     0.01%  log_analyzer  [unknown]              [k] 0xffffb2deccfd9e80
+     0.01%  log_analyzer  [unknown]              [k] 0xffffb2decd00b73c
+     0.01%  log_analyzer  [unknown]              [k] 0xffffb2deccfdaa30
+     0.01%  log_analyzer  [unknown]              [k] 0xffffb2decced3bd8
+     0.01%  log_analyzer  [unknown]              [k] 0xffffb2decd006f94
+     0.01%  log_analyzer  [unknown]              [k] 0xffffb2deccfda9a0
+     0.01%  log_analyzer  [unknown]              [k] 0xffffb2decced3c08
+     0.01%  log_analyzer  [unknown]              [k] 0xffffb2decd048e4c
+     0.01%  log_analyzer  [unknown]              [k] 0xffffb2deccc0d184
+     0.01%  log_analyzer  [unknown]              [k] 0xffffb2deccfdce4c
+     0.01%  log_analyzer  [unknown]              [k] 0xffffb2decd38a0c0
+     0.01%  log_analyzer  [unknown]              [k] 0xffffb2deccfd9f18
+     0.01%  log_analyzer  [unknown]              [k] 0xffffb2decd313f7c
+     0.01%  log_analyzer  [unknown]              [k] 0xffffb2deccf24cec
+     0.01%  log_analyzer  [unknown]              [k] 0xffffb2decd24ea10
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2deccf2c35c
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2decd36e8f8
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2decd00b6c4
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2decd38b5c8
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2deccecf4f4
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2deccf2c650
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2decd04933c
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2decd0070a4
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2deccfdaafc
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2deccfd9ec4
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2deccc0d194
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2deccf288e0
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2decd38bbf8
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2deccecf61c
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2decd002f50
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2decced3b80
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2decced3ce8
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2decd31d698
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2deccfb210c
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2decd049138
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2deccfb1694
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2decd002ee8
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2decd0492c0
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2decd007004
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2decced35f0
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2decd24e9c8
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2decdce45dc
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2decdce45d4
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2decd00b774
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2deccfb8888
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2deccc0d114
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2decd00dc8c
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2decd38a0d4
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2decced35e0
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2decd002f08
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2decd00f11c
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2decced3a64
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2deccd14458
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2deccecf564
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2decd24e9cc
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2decd0492b8
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2decd00cfb4
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2decd24e9d8
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2deccfdcdac
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2decd048da4
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2decd38bc28
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2decd1e0690
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2decd36e880
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2decced3590
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2deccc0d1b4
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2decd00f130
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2deccfdaa7c
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2deccd3cf08
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2deccd5a530
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2decd00cff4
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2decd04935c
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2decccff4b4
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2decccb7680
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2decd24ea2c
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2decd048d1c
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2decd00b5b8
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2deccee6e80
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2decced3cec
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2deccfdddf4
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2decd00b6cc
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2decd048cdc
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2decced3b78
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2decd00f118
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2decd003500
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2deccfd9eb4
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2deccf54348
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2decd005be0
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2deccecf4f8
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2deccfda990
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2decd1e07d4
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2decd0070a0
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2decced3bcc
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2decd1e0650
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2decced3a84
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2decd255efc
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2deccfdcd64
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2decced3ca0
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2decd31d68c
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2decda41a24
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2decd049400
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2deccd43fa4
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2decd31ba5c
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2decd31d564
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2decd049140
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2decced3bc0
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2deccfd9e0c
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2deccf8d618
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2deccfdaa28
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2decd693180
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2deccfdaa58
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2decced3bf8
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2deccfda9e4
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2decd255de0
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2decd31ba48
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2decced3cb0
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2decced3ba4
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2decd00b6c8
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2deccfdcdc4
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2deccc0d1b8
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2decd31d684
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2decced35b0
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2deccfdce38
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2decd36be64
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2decd048e50
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2decd31b980
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2decd006fb4
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2decd00b75c
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2decd255dd0
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2decd00b570
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2decd31d618
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2deccfd9eec
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2decced3f0c
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2deccecf4bc
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2deccc0d124
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2decd006f98
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2deccfdaaec
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2decd006f90
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2decced3d40
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2decced361c
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2deccfda9f4
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2decd0e08e0
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2deccecf3dc
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2decd00b654
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2decd3140ac
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2decd048d5c
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2decd31409c
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2decd1e07e8
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2deccfda9bc
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2deccfd9e78
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2deccecf5fc
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2deccd3ce88
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2deccc0d0f0
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2decd36bfac
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2deccf0149c
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2decd0e08a0
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2decd6930cc
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2decced3b40
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2decd00cfe8
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2decd0e08b8
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2deccfefd70
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2decd0e0890
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2deccd5a540
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2decd36e970
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2decdce4600
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2decd31d5e8
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2decd048d48
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2deccfd9de0
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2decd002ec8
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2decd00b650
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2deccfd9e5c
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2deccfdaac8
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2deccfb7504
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2deccfdce44
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2decd31b988
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2deccec8238
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2decd38bb44
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2deccecf5dc
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2decccfe6ec
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2decced3b70
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2decd31d788
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2deccfdaac4
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2deccfd9ea0
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2decd048dc4
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2decd00f100
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2deccecf544
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2decd00f144
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2decd048cc0
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2decd048dac
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2deccfb2cf8
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2deccf62200
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2decdce45cc
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2decd00cfb8
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2deccf52c1c
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2deccfb70b4
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2deccf50878
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2deccf50840
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2deccc2174c
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2decd38bee0
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2decd36bd5c
+     0.00%  log_analyzer  ld-linux-aarch64.so.1  [.] dl_main
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2deccfeb270
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2decd080240
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2decd692fec
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2deccf3a7c0
+     0.00%  log_analyzer  [unknown]              [k] 0xffffb2deccc9d238
+     0.00%  perf-exec     [unknown]              [k] 0xffffb2decceabef4
+     0.00%  perf-exec     [unknown]              [k] 0xffffb2decceadb34
+     0.00%  perf-exec     [unknown]              [k] 0xffffb2decceb9988
+
+
+#
+# (Cannot load tips.txt file, please install perf!)
+#
